@@ -41,8 +41,13 @@ module.exports = function(grunt) {
         count++;
         opts = extend({}, _this.data.options, file.options, {
           skipExisting: grunt.option('skipExisting'),
-          stopOnError: grunt.option('stopOnError')
+          stopOnError: grunt.option('stopOnError'),
+          imageMagick: grunt.option('imageMagick')
         });
+        if(opts.imageMagick){
+            // Overwrite gm to use ImageMagick instead of GraphicsMagick
+            gm = require('gm').subClass({imageMagick: true});
+        }
         if (opts.skipExisting && fs.existsSync(file.dest) && fs.statSync(file.dest).size) {
           grunt.verbose.writeln("Processing " + file.src + "...skipped, " + count + "/" + total);
           skippedItems.push(file.dest);
