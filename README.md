@@ -48,6 +48,8 @@ grunt.initConfig({
         skipExisting: false,
         // default: false
         stopOnError: false,
+        // default: false, set true to use ImageMagick instead of GraphicsMagick
+        imageMagick: false,
         // task options will also be passed to arg callback
         yourcustomopt: {
           'test/gruntjs.png': '"JavaScript Task Runner"',
@@ -134,4 +136,3 @@ Original|After&nbsp;Task&nbsp;#1|After&nbsp;Task&nbsp;#2|After&nbsp;Task&nbsp;#3
 [2]: http://www.graphicsmagick.org
 [3]: http://www.imagemagick.org
 [4]: https://github.com/aheckmann/gm#basic-usage
-
